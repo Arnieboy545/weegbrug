@@ -11,31 +11,20 @@ public class weegToepassing {
 		Grondstof grondstofZand = new Grondstof(10.0f);
 		Grondstof grondstofSteen = new Grondstof(15.0f);
 
-		int gewicht = 0;
-		int totaalGewicht = 0;
-		float prijsGrondstof = 0.0f;
-		float prijs = 0.0f; 
-		String bestuurder = ""; 
-		String boodschap = "";  
-
-		gewicht = weegschaal.getGewicht();
-		prijsGrondstof= grondstofZand.prijsPerKg;
-		prijs = gewicht*prijsGrondstof;
-		bestuurder = truckJan.bestuurder;
-		boodschap = "persoon: "+bestuurder+" prijs: "+prijs+" euro";
-		beeldscherm.setBoodschap(boodschap);
+		String boodschapJan = getBoodschap(weegschaal.getGewicht(), grondstofZand, truckJan);
+		String boodschapMieke = getBoodschap(weegschaal.getGewicht(), grondstofSteen, opleggerMieke);
 		
-		gewicht = weegschaal.getGewicht();
-		prijsGrondstof= grondstofSteen.prijsPerKg;
-		prijs = gewicht*prijsGrondstof;
-		bestuurder = opleggerMieke.bestuurder;
-		boodschap = "persoon: "+bestuurder+" prijs: "+prijs+" euro";
-		beeldscherm.setBoodschap(boodschap);
+		beeldscherm.setBoodschap(boodschapJan);
+		beeldscherm.setBoodschap(boodschapMieke);
 		
-		
+	}
 
-				
-
+	public static String getBoodschap(int gewicht, Grondstof grondstof, Vrachtwagen vrachtwagen)
+	{
+		float prijsGrondstof= grondstof.prijsPerKg;
+		float prijs = gewicht * prijsGrondstof;
+		String bestuurder = vrachtwagen.klantNaam;
+		return "persoon: " + bestuurder + " prijs: " + prijs + " euro";
 	}
 
 }

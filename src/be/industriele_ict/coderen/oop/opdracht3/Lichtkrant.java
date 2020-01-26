@@ -7,11 +7,6 @@ public class Lichtkrant {
 	public Lichtkrant(String boodschap) 
 	{
 		this.boodschap = boodschap; 
-		
-		
-		
-		
-		
 	}
 	public void setBoodschap(String boodschap)
 	{

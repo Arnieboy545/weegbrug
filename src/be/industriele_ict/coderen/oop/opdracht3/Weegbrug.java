@@ -13,22 +13,20 @@ public class Weegbrug {
 		this.gewichtMidden = gewichtMidden;
 		this.gewichtRechts = gewichtRechts;
 	}
+
 	public int getGewicht()
 	{
-		int gewicht = 0; 
+		this.gewichtLinks = weegGewicht();
+		this.gewichtMidden = weegGewicht();
+		this.gewichtRechts = weegGewicht();
+
+		return this.gewichtLinks + this.gewichtMidden + this.gewichtRechts;
+	}
+
+	private static int weegGewicht()
+	{
 		Random generator = new Random(); 
-
-
-		this.gewichtLinks = generator.nextInt(5000);
-		this.gewichtMidden = generator.nextInt(5000);
-		this.gewichtRechts = generator.nextInt(5000);
-
-		gewicht = (int)(this.gewichtLinks + this.gewichtMidden + this.gewichtRechts);
-		
-		
-
-		return (int) gewicht;
-
+		return generator.nextInt(5000);
 	}
 
 
